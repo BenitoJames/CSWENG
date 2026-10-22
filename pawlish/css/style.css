@@ -1,0 +1,47 @@
+:root {
+  --pink: #e05fa6;
+  --pink-light: #fdeef6;
+  --white: #ffffff;
+  --text: #3a2a33;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.6;
+}
+
+.topbar {
+  padding: 48px 24px;
+  text-align: center;
+  background: var(--pink);
+  color: var(--white);
+}
+
+.topbar h1 { font-size: 2.5rem; }
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.block {
+  padding: 24px;
+  margin-bottom: 16px;
+  background: var(--pink-light);
+  border: 2px dashed var(--pink);
+  border-radius: 12px;
+}
+
+.block h2 { color: var(--pink); margin-bottom: 8px; }
+
+.footer {
+  padding: 16px;
+  text-align: center;
+  background: var(--pink);
+  color: var(--white);
+}
