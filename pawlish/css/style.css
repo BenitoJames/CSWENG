@@ -766,6 +766,15 @@ em { font-style: italic; color: var(--rose); }
 
 .visit dd a { border-bottom: 1px solid var(--line); transition: border-color 0.3s; }
 .visit dd a:hover { border-color: var(--rose); }
+.visit .sep { margin-inline: 8px; color: var(--ink-soft); }
+
+.menu-note a {
+  color: var(--ivory);
+  border-bottom: 1px solid rgba(251, 247, 243, 0.4);
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.menu-note a:hover { color: var(--pink); border-color: var(--pink); }
 
 .booking-form {
   padding: clamp(28px, 5vw, 56px);
@@ -912,6 +921,26 @@ em { font-style: italic; color: var(--rose); }
   font-size: 1.3rem;
   color: var(--ivory);
 }
+
+.socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.socials a {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(251, 247, 243, 0.25);
+  border-radius: 50%;
+  color: var(--ivory);
+  transition: background 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.socials a:hover { background: var(--pink); border-color: var(--pink); color: var(--white); }
+.socials svg { width: 18px; height: 18px; }
 
 .footer h4 {
   font-size: 0.68rem;
