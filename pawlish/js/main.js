@@ -14,6 +14,14 @@ const setMenu = (open) => {
 toggle.addEventListener("click", () => setMenu(!document.body.classList.contains("menu-open")));
 document.querySelectorAll(".nav a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
 
+// Logo always returns to the top of the page
+document.querySelectorAll(".brand").forEach((a) => a.addEventListener("click", (e) => {
+  e.preventDefault();
+  setMenu(false);
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  history.replaceState(null, "", location.pathname + location.search);
+}));
+
 // Arched photos: only swap in the photo once it actually loads,
 // so a missing file keeps the branded fallback instead of a blank box.
 document.querySelectorAll(".arch[data-img]").forEach((el) => {
@@ -76,7 +84,7 @@ form.addEventListener("submit", (e) => {
   const pet = form.pet.value.trim();
   form.innerHTML = `
     <div class="form-success">
-      <svg aria-hidden="true"><use href="#paw"/></svg>
+      <span class="logo-mark" aria-hidden="true"></span>
       <h3>Thank you.</h3>
       <p>We've received your request for ${pet.replace(/[<>&"]/g, "")}. Our team will text or call to confirm your appointment.</p>
     </div>`;

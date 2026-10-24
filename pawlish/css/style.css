@@ -189,17 +189,30 @@ em { font-style: italic; color: var(--rose); }
   display: flex;
   align-items: center;
   gap: 10px;
-  color: var(--ink);
+  color: var(--rose);
 }
 
-.brand-mark { width: 30px; height: 30px; color: var(--rose); }
+/* The real Pawlish logo, cut from the client's artwork as alpha masks
+   so it can take any colour via currentColor. */
+.brand-mark,
+.logo-mark {
+  display: block;
+  aspect-ratio: 300 / 293;
+  background: currentColor;
+  -webkit-mask: url("../images/logo-mark.png") center / contain no-repeat;
+  mask: url("../images/logo-mark.png") center / contain no-repeat;
+}
 
 .brand-name {
-  font-family: var(--script);
-  font-size: 2.1rem;
-  line-height: 1;
-  padding-top: 6px;
+  display: block;
+  height: 30px;
+  aspect-ratio: 600 / 207;
+  background: currentColor;
+  -webkit-mask: url("../images/logo-word.png") center / contain no-repeat;
+  mask: url("../images/logo-word.png") center / contain no-repeat;
 }
+
+.brand-mark { width: 32px; }
 
 .nav {
   display: flex;
@@ -339,7 +352,7 @@ em { font-style: italic; color: var(--rose); }
   z-index: 0;
 }
 
-.arch-fallback svg { width: 34%; height: auto; }
+.arch-fallback .logo-mark { width: 34%; }
 
 .has-img .arch-fallback { display: none; }
 
@@ -402,14 +415,22 @@ em { font-style: italic; color: var(--rose); }
   padding-block: 20px;
 }
 
+/* Two identical groups; each is wider than any screen and ends with the same
+   48px spacing it uses between items, so shifting by exactly one group
+   (-50%) lands on an identical frame and the loop has no seam or gap. */
 .ribbon-track {
   display: flex;
-  gap: 48px;
   width: max-content;
-  animation: ribbon 40s linear infinite;
+  animation: ribbon 80s linear infinite;
 }
 
-.ribbon-track span {
+.ribbon-group {
+  display: flex;
+  gap: 48px;
+  padding-right: 48px;
+}
+
+.ribbon-group span {
   display: inline-flex;
   align-items: center;
   gap: 48px;
@@ -419,7 +440,7 @@ em { font-style: italic; color: var(--rose); }
   white-space: nowrap;
 }
 
-.ribbon-track span::after {
+.ribbon-group span::after {
   content: "\2726";
   font-style: normal;
   font-size: 0.7rem;
@@ -862,7 +883,7 @@ em { font-style: italic; color: var(--rose); }
 
 .form-success h3 { font-size: 2.2rem; margin-block: 18px 12px; }
 .form-success p { color: var(--ink-soft); }
-.form-success svg { width: 46px; height: 46px; margin: 0 auto; color: var(--rose); }
+.form-success .logo-mark { width: 52px; margin: 0 auto; color: var(--rose); }
 
 /* ---------- Footer ---------- */
 
@@ -880,8 +901,9 @@ em { font-style: italic; color: var(--rose); }
   border-bottom: 1px solid rgba(251, 247, 243, 0.12);
 }
 
-.footer .brand { color: var(--ivory); }
-.footer .brand-mark { color: var(--pink); }
+.footer .brand { color: var(--pink); }
+.footer .brand-mark { width: 40px; }
+.footer .brand-name { height: 38px; }
 
 .footer-tag {
   margin-top: 18px;
