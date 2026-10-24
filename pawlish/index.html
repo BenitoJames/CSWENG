@@ -2,40 +2,437 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pawlish Pet Grooming</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pawlish Pet Grooming | BF Homes, Parañaque</title>
+  <meta name="description" content="Pawlish is a boutique pet grooming studio in BF Homes, Parañaque. We treat your pets like royalty.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="topbar">
-    <h1>Pawlish</h1>
-    <p>We treat your pets like royalty.</p>
+  <!-- Reused paw-heart mark (echoes the Pawlish logo) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="paw" viewBox="0 0 64 64">
+      <ellipse cx="13" cy="21" rx="5.2" ry="6.6" transform="rotate(-24 13 21)" fill="currentColor"/>
+      <ellipse cx="24.5" cy="11.5" rx="5.4" ry="7" transform="rotate(-8 24.5 11.5)" fill="currentColor"/>
+      <ellipse cx="39.5" cy="11.5" rx="5.4" ry="7" transform="rotate(8 39.5 11.5)" fill="currentColor"/>
+      <ellipse cx="51" cy="21" rx="5.2" ry="6.6" transform="rotate(24 51 21)" fill="currentColor"/>
+      <path d="M32 60C19 51 13 44 13 37.5 13 32 17.2 28 22 28c4 0 7.2 2.2 10 6 2.8-3.8 6-6 10-6 4.8 0 9 4 9 9.5C51 44 45 51 32 60Z" fill="currentColor"/>
+    </symbol>
+  </svg>
+
+  <header class="topbar" id="top">
+    <div class="wrap">
+      <a href="#top" class="brand" aria-label="Pawlish home">
+        <svg class="brand-mark" aria-hidden="true"><use href="#paw"/></svg>
+        <span class="brand-name">Pawlish</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span>
+      </button>
+
+      <nav class="nav" id="site-nav">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#experience">Experience</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#booking" class="btn btn-solid">Reserve</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section class="block" id="about">
-      <h2>About</h2>
-      <p>About About</p>
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow reveal">Grooming Atelier · BF Homes</p>
+          <h1 class="reveal" data-delay="1">We treat your pets <em>like royalty.</em></h1>
+          <p class="lede reveal" data-delay="2">
+            An unhurried, hands-on grooming experience for dogs and cats, finished with the
+            care and detail of a private salon.
+          </p>
+          <div class="hero-actions reveal" data-delay="3">
+            <a href="#booking" class="btn btn-solid">Reserve an appointment</a>
+            <a href="#services" class="btn btn-ghost">View the menu</a>
+          </div>
+          <div class="hero-meta reveal" data-delay="3">
+            <div><strong>4.1K</strong><span>Loyal followers</span></div>
+            <div><strong>1 : 1</strong><span>Groomer to pet</span></div>
+            <div><strong>Dogs &amp; Cats</strong><span>All breeds welcome</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" data-delay="2">
+          <!-- Drop a photo at images/hero.jpg (portrait, ~900x1125) -->
+          <div class="arch" data-img="images/hero.jpg" role="img" aria-label="A freshly groomed dog">
+            <div class="arch-fallback"><svg aria-hidden="true"><use href="#paw"/></svg></div>
+          </div>
+          <div class="hero-badge">
+            <span>Hand-finished<br>with care<small>Every visit</small></span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="block" id="services">
-      <h2>Services</h2>
-      <p>Services Services</p>
+    <div class="ribbon" aria-hidden="true">
+      <div class="ribbon-track">
+        <span>Breed-standard cuts</span><span>Spa baths</span><span>Hand scissor finish</span><span>Cats welcome</span><span>Gentle handling</span><span>Premium products</span>
+        <span>Breed-standard cuts</span><span>Spa baths</span><span>Hand scissor finish</span><span>Cats welcome</span><span>Gentle handling</span><span>Premium products</span>
+      </div>
+    </div>
+
+    <!-- ================= ABOUT ================= -->
+    <section class="section" id="about">
+      <div class="wrap about-grid">
+        <div class="about-visual reveal">
+          <!-- images/about-1.jpg (portrait) and images/about-2.jpg (portrait) -->
+          <div class="arch" data-img="images/about-1.jpg" role="img" aria-label="Groomer brushing a dog">
+            <div class="arch-fallback"><svg aria-hidden="true"><use href="#paw"/></svg></div>
+          </div>
+          <div class="arch small" data-img="images/about-2.jpg" role="img" aria-label="A cat after grooming">
+            <div class="arch-fallback"><svg aria-hidden="true"><use href="#paw"/></svg></div>
+          </div>
+        </div>
+
+        <div class="about-copy">
+          <p class="eyebrow reveal">The House of Pawlish</p>
+          <h2 class="reveal" data-delay="1">A quieter, more <em>considered</em> kind of grooming.</h2>
+          <p class="lede reveal" data-delay="2">
+            Pawlish was built for pet parents who expect more. Every visit is booked with
+            time to spare, so your companion is never rushed, never crated for hours, and
+            always handled by a groomer who knows them by name.
+          </p>
+
+          <ul class="principles">
+            <li class="reveal">
+              <span class="num">i.</span>
+              <div>
+                <h3>One pet, one groomer</h3>
+                <p>Your pet stays with the same hands from first brush to final spritz.</p>
+              </div>
+            </li>
+            <li class="reveal" data-delay="1">
+              <span class="num">ii.</span>
+              <div>
+                <h3>Salon-grade products</h3>
+                <p>Gentle, pH-balanced shampoos and conditioners chosen for each coat type.</p>
+              </div>
+            </li>
+            <li class="reveal" data-delay="2">
+              <span class="num">iii.</span>
+              <div>
+                <h3>Calm by design</h3>
+                <p>Low-stress handling, quiet dryers and plenty of treats along the way.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section class="block" id="reviews">
-      <h2>Reviews</h2>
-      <p>Review Review</p>
+    <!-- ================= SERVICES ================= -->
+    <!-- NOTE: prices below are placeholders. Replace with the client's actual rates. -->
+    <section class="section services" id="services">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow reveal">The Menu</p>
+          <h2 class="reveal" data-delay="1">Services, <em>tailored</em> to every coat.</h2>
+          <p class="lede reveal" data-delay="2">Choose a signature groom, then add a ritual or two. Rates vary by size and coat condition.</p>
+        </div>
+
+        <div class="menu-tabs reveal" role="tablist" aria-label="Service categories">
+          <button class="menu-tab" role="tab" aria-selected="true" aria-controls="panel-groom" id="tab-groom">Signature Grooming</button>
+          <button class="menu-tab" role="tab" aria-selected="false" aria-controls="panel-spa" id="tab-spa" tabindex="-1">Spa Rituals</button>
+          <button class="menu-tab" role="tab" aria-selected="false" aria-controls="panel-extras" id="tab-extras" tabindex="-1">Finishing Touches</button>
+        </div>
+
+        <div class="menu-panel" id="panel-groom" role="tabpanel" aria-labelledby="tab-groom">
+          <div class="menu-item">
+            <div class="menu-row">
+              <h3>The Royal Groom <span class="menu-tag">Signature</span></h3>
+              <span class="dots"></span>
+              <span class="price"><small>from</small>₱1,200</span>
+            </div>
+            <p>Our complete treatment: spa bath, blow-dry, full haircut and hand-scissored finish, nail trim, ear cleaning and a finishing cologne.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-row">
+              <h3>Full Groom</h3>
+              <span class="dots"></span>
+              <span class="price"><small>from</small>₱850</span>
+            </div>
+            <p>Bath, blow-dry, breed-appropriate haircut, nail trim and ear cleaning.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-row">
+              <h3>Bath &amp; Tidy</h3>
+              <span class="dots"></span>
+              <span class="price"><small>from</small>₱550</span>
+            </div>
+            <p>A refreshing bath and brush-out with a tidy of the face, paws and sanitary areas.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-row">
+              <h3>Feline Groom</h3>
+              <span class="dots"></span>
+              <span class="price"><small>from</small>₱950</span>
+            </div>
+            <p>A gentle, cat-only session with bath, de-shedding, nail trim and optional lion cut.</p>
+          </div>
+        </div>
+
+        <div class="menu-panel" id="panel-spa" role="tabpanel" aria-labelledby="tab-spa" hidden>
+          <div class="menu-item">
+            <div class="menu-row">
+              <h3>Blueberry Facial</h3>
+              <span class="dots"></span>
+              <span class="price">₱250</span>
+            </div>
+            <p>A tear-free facial scrub that brightens the face and softens tear stains.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-row">
+              <h3>Deep Conditioning Mask</h3>
+              <span class="dots"></span>
+              <span class="price">₱300</span>
+            </div>
+            <p>An intensive treatment that restores shine and softness to dry or long coats.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-row">
+              <h3>Paw &amp; Nose Balm</h3>
+              <span class="dots"></span>
+              <span class="price">₱200</span>
+            </div>
+            <p>A soothing balm massage for dry pads and noses.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-row">
+              <h3>De-shedding Treatment</h3>
+              <span class="dots"></span>
+              <span class="price"><small>from</small>₱400</span>
+            </div>
+            <p>Releases loose undercoat to keep shedding to a minimum at home.</p>
+          </div>
+        </div>
+
+        <div class="menu-panel" id="panel-extras" role="tabpanel" aria-labelledby="tab-extras" hidden>
+          <div class="menu-item">
+            <div class="menu-row">
+              <h3>Teeth Brushing</h3>
+              <span class="dots"></span>
+              <span class="price">₱150</span>
+            </div>
+            <p>Enzymatic toothpaste and a gentle brush for fresher breath.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-row">
+              <h3>Nail Grinding &amp; Polish</h3>
+              <span class="dots"></span>
+              <span class="price">₱200</span>
+            </div>
+            <p>Smooth, rounded nails with an optional pet-safe polish.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-row">
+              <h3>Bows &amp; Bandana</h3>
+              <span class="dots"></span>
+              <span class="price">₱100</span>
+            </div>
+            <p>A signature Pawlish accessory for the photo-ready exit.</p>
+          </div>
+        </div>
+
+        <p class="menu-note">Prices shown are for small breeds. Medium, large and matted coats are quoted at check-in.</p>
+      </div>
     </section>
 
-    <section class="block" id="booking">
-      <h2>Booking</h2>
-      <p>book book</p>
+    <!-- ================= EXPERIENCE ================= -->
+    <section class="section experience" id="experience">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow reveal">The Experience</p>
+          <h2 class="reveal" data-delay="1">From arrival to <em>the reveal.</em></h2>
+        </div>
+
+        <ol class="steps">
+          <li class="step reveal">
+            <h3>Consultation</h3>
+            <p>We start with a conversation about your pet's coat, temperament and the look you have in mind.</p>
+          </li>
+          <li class="step reveal" data-delay="1">
+            <h3>Spa bath</h3>
+            <p>A warm, unhurried bath with products matched to their skin and coat.</p>
+          </li>
+          <li class="step reveal" data-delay="2">
+            <h3>Sculpting</h3>
+            <p>Precise cuts and hand-scissored detail, finished with patience rather than speed.</p>
+          </li>
+          <li class="step reveal" data-delay="3">
+            <h3>The reveal</h3>
+            <p>A final spritz, a little accessory, and a photo-ready pet waiting for you.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= REVIEWS ================= -->
+    <!-- NOTE: sample testimonials. Replace with real reviews from the Pawlish Facebook page (with permission). -->
+    <section class="section" id="reviews">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow reveal">Kind Words</p>
+          <h2 class="reveal" data-delay="1">Loved by pets, <em>trusted</em> by their people.</h2>
+        </div>
+
+        <div class="reviews-grid">
+          <figure class="review reveal">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“Our Shih Tzu came home looking like a show dog and, more importantly, calm and happy. You can tell they genuinely care.”</blockquote>
+            <figcaption>Client name<span>Pet parent to Mochi</span></figcaption>
+          </figure>
+          <figure class="review reveal" data-delay="1">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“The only groomer my anxious Persian tolerates. Gentle, patient and incredibly detailed.”</blockquote>
+            <figcaption>Client name<span>Pet parent to Luna</span></figcaption>
+          </figure>
+          <figure class="review reveal" data-delay="2">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“Clean, beautiful studio and a groom that lasts. Worth every peso. We won't go anywhere else.”</blockquote>
+            <figcaption>Client name<span>Pet parent to Bruno</span></figcaption>
+          </figure>
+        </div>
+
+        <div class="reviews-more reveal">
+          <a class="link-arrow" href="https://www.facebook.com/" target="_blank" rel="noopener">Read more on Facebook <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BOOKING ================= -->
+    <section class="section booking" id="booking">
+      <div class="wrap booking-grid">
+        <div>
+          <p class="eyebrow reveal">Reservations</p>
+          <h2 class="reveal" data-delay="1">Reserve your pet's <em>royal treatment.</em></h2>
+          <p class="lede reveal" data-delay="2">Send a request and our team will confirm your appointment by text or call within the day.</p>
+
+          <div class="visit reveal" data-delay="2">
+            <dl>
+              <div>
+                <dt>Studio</dt>
+                <dd>331 Aguirre Avenue, Juliana Bldg,<br>BF Homes, Parañaque</dd>
+              </div>
+              <div>
+                <dt>Call or text</dt>
+                <dd><a href="tel:+639560233574">0956 023 3574</a></dd>
+              </div>
+              <div>
+                <!-- NOTE: placeholder hours, confirm with the client -->
+                <dt>Hours</dt>
+                <dd>Tuesday to Sunday<br>10:00 AM – 7:00 PM</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        <div class="reveal" data-delay="1">
+          <!-- NOTE: no backend yet. js/main.js shows a confirmation instead of submitting. -->
+          <form class="booking-form" id="booking-form" novalidate>
+            <div class="form-grid">
+              <div class="field">
+                <label for="owner">Your name</label>
+                <input id="owner" name="owner" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="phone">Mobile number</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="09XX XXX XXXX" required>
+              </div>
+              <div class="field">
+                <label for="pet">Pet's name</label>
+                <input id="pet" name="pet" type="text" required>
+              </div>
+              <div class="field">
+                <label for="breed">Breed</label>
+                <input id="breed" name="breed" type="text" placeholder="e.g. Shih Tzu, Persian">
+              </div>
+              <div class="field full">
+                <label id="size-label">Size</label>
+                <div class="size-options" role="radiogroup" aria-labelledby="size-label">
+                  <label><input type="radio" name="size" value="cat"><span>Cat</span></label>
+                  <label><input type="radio" name="size" value="small" checked><span>Small</span></label>
+                  <label><input type="radio" name="size" value="medium"><span>Medium</span></label>
+                  <label><input type="radio" name="size" value="large"><span>Large</span></label>
+                </div>
+              </div>
+              <div class="field">
+                <label for="service">Service</label>
+                <select id="service" name="service" required>
+                  <option value="royal">The Royal Groom</option>
+                  <option value="full">Full Groom</option>
+                  <option value="bath">Bath &amp; Tidy</option>
+                  <option value="feline">Feline Groom</option>
+                  <option value="unsure">Not sure yet</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="date">Preferred date</label>
+                <input id="date" name="date" type="date" required>
+              </div>
+              <div class="field full">
+                <label for="notes">Anything we should know?</label>
+                <textarea id="notes" name="notes" rows="3" placeholder="Allergies, temperament, the look you'd like..."></textarea>
+              </div>
+            </div>
+
+            <div class="form-foot">
+              <p>Your slot is held once we confirm. No payment is taken online.</p>
+              <button type="submit" class="btn btn-solid">Request booking</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>Pawlish Pet Grooming</p>
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <a href="#top" class="brand" aria-label="Back to top">
+            <svg class="brand-mark" aria-hidden="true"><use href="#paw"/></svg>
+            <span class="brand-name">Pawlish</span>
+          </a>
+          <p class="footer-tag">We treat your pets like royalty.</p>
+        </div>
+        <div>
+          <h4>Visit</h4>
+          <ul>
+            <li>331 Aguirre Avenue, Juliana Bldg</li>
+            <li>BF Homes, Parañaque</li>
+            <li><a href="tel:+639560233574">0956 023 3574</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#booking">Book a visit</a></li>
+            <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> Pawlish Pet Grooming</p>
+        <p>BF Homes, Parañaque, Philippines</p>
+      </div>
+    </div>
   </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
