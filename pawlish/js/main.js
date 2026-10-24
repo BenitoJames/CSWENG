@@ -17,13 +17,13 @@ document.querySelectorAll(".nav a").forEach((a) => a.addEventListener("click", (
 // Arched photos: only swap in the photo once it actually loads,
 // so a missing file keeps the branded fallback instead of a blank box.
 document.querySelectorAll(".arch[data-img]").forEach((el) => {
-  const src = el.dataset.img;
   const img = new Image();
   img.onload = () => {
-    el.style.setProperty("--img", `url("${src}")`);
+    // img.src is absolute, so the url() doesn't resolve against /css
+    el.style.setProperty("--img", `url("${img.src}")`);
     el.classList.add("has-img");
   };
-  img.src = src;
+  img.src = el.dataset.img;
 });
 
 // Reveal sections as they scroll into view

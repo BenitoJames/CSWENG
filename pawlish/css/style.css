@@ -139,7 +139,7 @@ em { font-style: italic; color: var(--rose); }
 .btn-solid:hover { background: var(--rose); border-color: var(--rose); }
 
 .btn-ghost { background: transparent; color: var(--ink); }
-.btn-ghost:hover { background: var(--ink); color: var(--ivory); }
+.btn-ghost:hover { background: var(--blush); border-color: var(--rose); color: var(--rose); }
 
 .link-arrow {
   display: inline-flex;
@@ -601,6 +601,22 @@ em { font-style: italic; color: var(--rose); }
 
 .experience { background: var(--blush); }
 
+.experience-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: clamp(48px, 7vw, 80px);
+}
+
+.experience-head .section-head { margin-bottom: 0; }
+
+.experience-head .arch {
+  flex: 0 0 auto;
+  width: clamp(200px, 26vw, 320px);
+  aspect-ratio: 1 / 1;
+}
+
 .steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -657,10 +673,18 @@ em { font-style: italic; color: var(--rose); }
 }
 
 .review .stars {
-  color: var(--champagne);
-  letter-spacing: 0.3em;
-  font-size: 0.85rem;
+  color: var(--rose);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
   margin-bottom: 22px;
+}
+
+.review .stars::before {
+  content: "\2665";
+  margin-right: 10px;
+  letter-spacing: 0;
 }
 
 .review blockquote {
@@ -957,6 +981,9 @@ em { font-style: italic; color: var(--rose); }
   .hero { padding-top: 120px; }
   .hero-badge { width: 108px; height: 108px; }
   .hero-badge span { font-size: 0.9rem; }
+
+  .experience-head { flex-direction: column; align-items: flex-start; }
+  .experience-head .arch { width: min(100%, 260px); }
 
   .form-grid { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
