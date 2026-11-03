@@ -70,6 +70,24 @@ tabs.forEach((tab, i) => {
   });
 });
 
+// Facebook Page Plugin responsive width sync
+const fbWrap = document.getElementById("fb-embed-wrap");
+const fbIframe = document.getElementById("fb-page-iframe");
+if (fbWrap && fbIframe) {
+  const syncFbWidth = () => {
+    const w = Math.max(280, Math.min(500, Math.floor(fbWrap.clientWidth)));
+    const pageUrl = encodeURIComponent("https://www.facebook.com/profile.php?id=61550748301155");
+    const nextSrc = `https://www.facebook.com/plugins/page.php?href=${pageUrl}&tabs=timeline&width=${w}&height=460&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true`;
+    if (fbIframe.getAttribute("data-w") !== String(w)) {
+      fbIframe.setAttribute("data-w", String(w));
+      fbIframe.width = String(w);
+      fbIframe.src = nextSrc;
+    }
+  };
+  window.addEventListener("load", syncFbWidth, { once: true });
+  syncFbWidth();
+}
+
 // Booking form: no backend yet, so validate and show a confirmation
 const form = document.getElementById("booking-form");
 const dateInput = document.getElementById("date");
