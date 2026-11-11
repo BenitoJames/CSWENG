@@ -467,7 +467,7 @@
 
     <!-- ================= BOOKING & BUSINESS INFO ================= -->
     <section class="section booking" id="booking">
-      <di class="wrap booking-grid">
+      <div class="wrap booking-grid">
         <div class="business-info">
           <p class="eyebrow reveal">Reservations</p>
           <h2 class="reveal" data-delay="1">Reserve your pet's <em>royal treatment.</em></h2>
@@ -501,59 +501,51 @@
           </div>
 
         <div class="reveal" data-delay="1">
-          <!-- NOTE: no backend yet. js/main.js shows a confirmation instead of submitting. -->
           <form class="booking-form" id="booking-form" novalidate>
             <div class="form-grid">
               <div class="field">
-                <label for="owner">Your name</label>
+                <label for="owner">Customer name</label>
                 <input id="owner" name="owner" type="text" autocomplete="name" required>
               </div>
               <div class="field">
-                <label for="phone">Mobile number</label>
-                <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="09XX XXX XXXX" required>
+                <label for="phone">Mobile #</label>
+                <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="09XX XXX XXXX" required>
               </div>
               <div class="field">
-                <label for="pet">Pet's name</label>
+                <label for="pet">Pet name</label>
                 <input id="pet" name="pet" type="text" required>
               </div>
               <div class="field">
                 <label for="breed">Breed</label>
-                <input id="breed" name="breed" type="text" placeholder="e.g. Shih Tzu, Persian">
-              </div>
-              <div class="field full">
-                <label id="size-label">Size</label>
-                <div class="size-options" role="radiogroup" aria-labelledby="size-label">
-                  <label><input type="radio" name="size" value="cat"><span>Cat</span></label>
-                  <label><input type="radio" name="size" value="small" checked><span>Small</span></label>
-                  <label><input type="radio" name="size" value="medium"><span>Medium</span></label>
-                  <label><input type="radio" name="size" value="large"><span>Large</span></label>
-                </div>
+                <input id="breed" name="breed" type="text" placeholder="e.g. Shih Tzu, Persian" required>
               </div>
               <div class="field">
-                <label for="service">Service</label>
-                <select id="service" name="service" required>
-                  <option value="royal">The Royal Groom</option>
-                  <option value="full">Full Groom</option>
-                  <option value="bath">Bath &amp; Tidy</option>
-                  <option value="feline">Feline Groom</option>
-                  <option value="unsure">Not sure yet</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="date">Preferred date</label>
+                <label for="date">Preferred day</label>
                 <input id="date" name="date" type="date" required>
               </div>
-              <div class="field full">
-                <label for="notes">Anything we should know?</label>
-                <textarea id="notes" name="notes" rows="3" placeholder="Allergies, temperament, the look you'd like..."></textarea>
+              <div class="field">
+                <label for="time">Preferred time</label>
+                <input id="time" name="time" type="time" min="09:00" max="18:00" required>
               </div>
             </div>
 
             <div class="form-foot">
-              <p>Your slot is held once we confirm. No payment is taken online.</p>
-              <button type="submit" class="btn btn-solid">Request booking</button>
+              <p>Sending opens Messenger with your details ready to go to our page. No payment is taken online.</p>
+              <button type="submit" class="btn btn-solid">Send via Messenger</button>
             </div>
           </form>
+
+          <div class="form-success" id="booking-sent" hidden>
+            <span class="logo-mark" aria-hidden="true"></span>
+            <h3>One last step.</h3>
+            <p id="booking-status" aria-live="polite"></p>
+            <pre class="booking-preview" id="booking-preview"></pre>
+            <div class="sent-actions">
+              <a class="btn btn-solid" id="open-messenger" href="https://m.me/61550748301155" target="_blank" rel="noopener">Open Messenger</a>
+              <button type="button" class="btn btn-ghost" id="copy-again">Copy again</button>
+              <button type="button" class="link-btn" id="edit-booking">Edit details</button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
