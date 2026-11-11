@@ -1058,6 +1058,43 @@ em { font-style: italic; color: var(--rose); }
 .form-success p { color: var(--ink-soft); }
 .form-success .logo-mark { width: 52px; margin: 0 auto; color: var(--rose); }
 
+.booking-form[hidden],
+.form-success[hidden] { display: none; }
+
+.booking-preview {
+  max-width: 28em;
+  margin: 24px auto 0;
+  padding: 20px 24px;
+  text-align: left;
+  white-space: pre-wrap;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.sent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.link-btn {
+  padding: 0;
+  font: inherit;
+  color: var(--rose-deep);
+  text-decoration: underline;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
 /* ---------- Footer ---------- */
 
 .footer {
