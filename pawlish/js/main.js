@@ -88,10 +88,70 @@ if (fbWrap && fbIframe) {
   syncFbWidth();
 }
 
-// Booking form: no backend yet, so validate and show a confirmation
+const MESSENGER_URL = "https://m.me/61550748301155";
+
 const form = document.getElementById("booking-form");
+const sent = document.getElementById("booking-sent");
+const statusEl = document.getElementById("booking-status");
+const preview = document.getElementById("booking-preview");
+const phoneInput = document.getElementById("phone");
 const dateInput = document.getElementById("date");
 dateInput.min = new Date().toISOString().split("T")[0];
+
+phoneInput.addEventListener("input", () => {
+  const digits = phoneInput.value.replace(/[\s-]/g, "");
+  const valid = /^(\+?63|0)9\d{9}$/.test(digits);
+  phoneInput.setCustomValidity(valid || !digits ? "" : "Enter a valid mobile number, e.g. 0917 123 4567");
+});
+
+const formatDay = (value) => {
+  const [y, m, d] = value.split("-").map(Number);
+  return new Date(y, m - 1, d).toLocaleDateString("en-PH", {
+    weekday: "long", month: "long", day: "numeric", year: "numeric"
+  });
+};
+
+const formatTime = (value) => {
+  const [h, m] = value.split(":").map(Number);
+  return `${h % 12 || 12}:${String(m).padStart(2, "0")} ${h >= 12 ? "PM" : "AM"}`;
+};
+
+const buildMessage = () => {
+  const f = form.elements;
+  return [
+    `Customer Name: ${f.owner.value.trim()}`,
+    `Mobile #: ${f.phone.value.trim()}`,
+    `Pet Name: ${f.pet.value.trim()}`,
+    `Breed: ${f.breed.value.trim()}`,
+    `Preffered Day: ${formatDay(f.date.value)}`,
+    `Preffered Time: ${formatTime(f.time.value)}`
+  ].join("\n");
+};
+
+const copyText = (text) => {
+  const area = document.createElement("textarea");
+  area.value = text;
+  area.setAttribute("readonly", "");
+  area.style.position = "fixed";
+  area.style.top = "0";
+  area.style.opacity = "0";
+  document.body.appendChild(area);
+  area.focus({ preventScroll: true });
+  area.select();
+  area.setSelectionRange(0, text.length);
+  let ok = false;
+  try { ok = document.execCommand("copy"); } catch { ok = false; }
+  area.remove();
+  if (ok) return Promise.resolve(true);
+  if (!navigator.clipboard) return Promise.resolve(false);
+  return navigator.clipboard.writeText(text).then(() => true, () => false);
+};
+
+const showCopyResult = (ok) => {
+  statusEl.textContent = ok
+    ? "Your details are copied. Paste them into the Messenger chat with Pawlish and press send."
+    : "Copy the details below, then paste them into the Messenger chat with Pawlish and press send.";
+};
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -99,13 +159,26 @@ form.addEventListener("submit", (e) => {
     form.reportValidity();
     return;
   }
-  const pet = form.pet.value.trim();
-  form.innerHTML = `
-    <div class="form-success">
-      <span class="logo-mark" aria-hidden="true"></span>
-      <h3>Thank you.</h3>
-      <p>We've received your request for ${pet.replace(/[<>&"]/g, "")}. Our team will text or call to confirm your appointment.</p>
-    </div>`;
+  const message = buildMessage();
+  preview.textContent = message;
+  form.hidden = true;
+  sent.hidden = false;
+  copyText(message).then(showCopyResult);
+  window.open(MESSENGER_URL, "_blank", "noopener");
+  sent.scrollIntoView({ behavior: "smooth", block: "center" });
+});
+
+document.getElementById("open-messenger").addEventListener("click", () => {
+  copyText(preview.textContent).then(showCopyResult);
+});
+
+document.getElementById("copy-again").addEventListener("click", () => {
+  copyText(preview.textContent).then(showCopyResult);
+});
+
+document.getElementById("edit-booking").addEventListener("click", () => {
+  sent.hidden = true;
+  form.hidden = false;
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
