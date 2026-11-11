@@ -128,23 +128,23 @@ const buildMessage = () => {
   ].join("\n");
 };
 
-const copyText = async (text) => {
-  try {
-    await navigator.clipboard.writeText(text);
-    return true;
-  } catch {
-    const area = document.createElement("textarea");
-    area.value = text;
-    area.setAttribute("readonly", "");
-    area.style.position = "fixed";
-    area.style.opacity = "0";
-    document.body.appendChild(area);
-    area.select();
-    let ok = false;
-    try { ok = document.execCommand("copy"); } catch { ok = false; }
-    area.remove();
-    return ok;
-  }
+const copyText = (text) => {
+  const area = document.createElement("textarea");
+  area.value = text;
+  area.setAttribute("readonly", "");
+  area.style.position = "fixed";
+  area.style.top = "0";
+  area.style.opacity = "0";
+  document.body.appendChild(area);
+  area.focus({ preventScroll: true });
+  area.select();
+  area.setSelectionRange(0, text.length);
+  let ok = false;
+  try { ok = document.execCommand("copy"); } catch { ok = false; }
+  area.remove();
+  if (ok) return Promise.resolve(true);
+  if (!navigator.clipboard) return Promise.resolve(false);
+  return navigator.clipboard.writeText(text).then(() => true, () => false);
 };
 
 const showCopyResult = (ok) => {
@@ -166,6 +166,10 @@ form.addEventListener("submit", (e) => {
   copyText(message).then(showCopyResult);
   window.open(MESSENGER_URL, "_blank", "noopener");
   sent.scrollIntoView({ behavior: "smooth", block: "center" });
+});
+
+document.getElementById("open-messenger").addEventListener("click", () => {
+  copyText(preview.textContent).then(showCopyResult);
 });
 
 document.getElementById("copy-again").addEventListener("click", () => {
@@ -197,4 +201,5 @@ sectionSelect.addEventListener("change", () => {
   }
 
   sectionSelect.value = "";
+});
 });
